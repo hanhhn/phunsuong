@@ -1,3 +1,5 @@
+﻿https://electrosome.com/led-control-esp8266-web-server/
+
 1. Upload source vào bo mạch
 - Chọn boar: NodeMCU 0.9 (ESP 12 - Module)
 - Chọn cổng COM tương ứng, nếu chưa update driver cho cổng COM thì arduino sẽ ko nhận cổng com, vào Device Manager để update driver
