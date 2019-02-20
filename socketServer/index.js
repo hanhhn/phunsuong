@@ -18,7 +18,10 @@ io.on('connection', function(socket) {
 	
 	socket.on("messageType", function(data) {
 		console.log(data);
+		
 	});
+	
+	socket.emit("time", { time: new Date().toLocaleString() });
 		
 	socket.on('disconnect', function() {
 		console.log("disconnect")

@@ -17,9 +17,6 @@
 ESP8266WiFiMulti WiFiMulti;
 WebSocketsClient webSocket;
 
-
-#define USE_SERIAL Serial1
-
 #define MESSAGE_INTERVAL 30000
 #define HEARTBEAT_INTERVAL 25000
 
@@ -29,30 +26,27 @@ bool isConnected = false;
 
 void webSocketEvent(WStype_t type, uint8_t * payload, size_t length) {
 
-
     switch(type) {
         case WStype_DISCONNECTED:
-            USE_SERIAL.printf("[WSc] Disconnected!\n");
+            Serial.printf("[WSc] Disconnected!\n");
             isConnected = false;
             break;
         case WStype_CONNECTED:
-            {
-                USE_SERIAL.printf("[WSc] Connected to url: %s\n",  payload);
-                isConnected = true;
+            Serial.printf("[WSc] Connected to url: %s\n",  payload);
+            isConnected = true;
 
-          // send message to server when Connected
-                // socket.io upgrade confirmation message (required)
-        webSocket.sendTXT("5");
-            }
+            // send message to server when Connected
+            // socket.io upgrade confirmation message (required)
+            webSocket.sendTXT("5");
             break;
         case WStype_TEXT:
-            USE_SERIAL.printf("[WSc] get text: %s\n", payload);
+            Serial.printf("[WSc] get text: %s\n", payload);
 
-      // send message to server
-      // webSocket.sendTXT("message here");
+            // send message to server
+            //webSocket.sendTXT("message got");
             break;
         case WStype_BIN:
-            USE_SERIAL.printf("[WSc] get binary length: %u\n", length);
+            Serial.printf("[WSc] get binary length: %u\n", length);
             hexdump(payload, length);
 
             // send data to server
@@ -63,19 +57,17 @@ void webSocketEvent(WStype_t type, uint8_t * payload, size_t length) {
 }
 
 void setup() {
-    // USE_SERIAL.begin(921600);
-    USE_SERIAL.begin(115200);
+    Serial.begin(9600);
 
-    //Serial.setDebugOutput(true);
-    USE_SERIAL.setDebugOutput(true);
+    Serial.setDebugOutput(true);
 
-    USE_SERIAL.println();
-    USE_SERIAL.println();
-    USE_SERIAL.println();
+    Serial.println();
+    Serial.println();
+    Serial.println();
 
       for(uint8_t t = 4; t > 0; t--) {
-          USE_SERIAL.printf("[SETUP] BOOT WAIT %d...\n", t);
-          USE_SERIAL.flush();
+          Serial.printf("[SETUP] BOOT WAIT %d...\n", t);
+          Serial.flush();
           delay(1000);
       }
 
