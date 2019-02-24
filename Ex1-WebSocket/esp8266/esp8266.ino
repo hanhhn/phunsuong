@@ -92,7 +92,7 @@ void loop() {
     if(now - messageTimestamp > MESSAGE_INTERVAL) {
         messageTimestamp = now;
         // example socket.io message with type "messageType" and JSON payload
-        webSocket.sendTXT("42[\"messageType\",{\"greeting\":\"hello\"}]");
+        webSocket.sendTXT("42[\"message\",{\"hello\":\"hello socketio server\"}]");
     }
     if((now - heartbeatTimestamp) > HEARTBEAT_INTERVAL) {
         heartbeatTimestamp = now;

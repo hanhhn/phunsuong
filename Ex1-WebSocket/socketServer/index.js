@@ -16,10 +16,10 @@ io.on('connection', function(socket) {
 	
     console.log("connected");
 	
-	socket.on("messageType", function(data) {
+	socket.on("message", function(data) {
 		console.log(data);
-		socket.emit("hello", { hello: 'world' });
 		
+		socket.emit("hello", { hello: 'hello socketio client' });
 	});
 	
 	socket.on('disconnect', function() {
