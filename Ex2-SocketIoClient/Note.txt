@@ -1,0 +1,4 @@
+Vẩn chưa thực hiện emit, on 1 event giữa socketioclient esp8266 với socketio nodejs
+=> thư viện socketioclient có vấn đề or cục esp8266 có vấn đề
+- esp8266: có lúc connect emit và on dc có lúc lại không
+- Wifi có lúc connect dc có lúc tìm ko ra

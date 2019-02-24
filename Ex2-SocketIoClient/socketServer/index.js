@@ -12,15 +12,18 @@ console.log("Server nodejs: " + ip.address() + ":" + PORT)
 
 var count = 0;
 
-io.on('connection', function(socket) {	
-	
+io.on('connection', function(socket) {
     console.log("connected");
 	
-	socket.on("messageType", function(data) {
+	socket.on("event", function(data) {
 		console.log(data);
-		socket.emit("hello", { hello: 'world' });
-		
 	});
+	
+	socket.on("message", function(data) {
+		console.log(data);
+	});
+	
+	socket.emit("event", { hello: "socketIo client" });
 	
 	socket.on('disconnect', function() {
 		console.log("disconnect")
