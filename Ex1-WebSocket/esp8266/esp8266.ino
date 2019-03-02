@@ -69,14 +69,14 @@ void setup() {
         delay(1000);
     }
 
-  WiFiMulti.addAP("HanhHN", "123456789");
+  WiFiMulti.addAP("WIFI", "qwerty___");
 
   //WiFi.disconnect();
   while(WiFiMulti.run() != WL_CONNECTED) {
       delay(100);
   }
 
-  webSocket.beginSocketIO("192.168.43.198", 3484);
+  webSocket.beginSocketIO("192.168.0.105", 3484);
   //webSocket.setAuthorization("user", "Password"); // HTTP Basic Authorization
   webSocket.onEvent(webSocketEvent);
 

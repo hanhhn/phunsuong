@@ -1,0 +1,3 @@
+- Bật tắt đèn led bằng socketio
+- parsing json để bật tắt
+- chỉ có kết nối giữa esp8266 vs socketio server, vẩn chưa thông qua socketioclient từ website
